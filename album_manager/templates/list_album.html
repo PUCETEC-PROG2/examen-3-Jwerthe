@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block title %}{% endblock title %}
+{% block content %}
+        <h1><strong>Albumes</strong></h1>
+        <div class="card-group">
+            {% for album in albums %}
+                <div class="card">
+                    <img src="{{ album.album_cover.url }}" alt="" style="height:210px; object-fit: scale-down;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ album }}</h5>
+                        <p class="card-text">Año: {{ album.year }}</p>
+                        <p class="card-text">Artista: {{ album.artist }}</p>
+                        <a href="album/{{ album.id }}" class="btn btn-success">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                            <a href="edit_album/{{ album.id }}" class="btn btn-primary">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                            <a href="delete_album/{{ album.id }}" class="btn btn-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock content %}

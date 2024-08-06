@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block title %}{% endblock title %}
+{% block content %}
+    <h2>Artista: <strong>{{ artist | capfirst }}</strong></h2>
+    <h3>Información:</h3>
+    <ul>
+        <li>Nombre: {{ artist.name }}</li>
+        <li>Pais: {{ artist.country }}</li>
+    </ul> 
+    <button type="submit" class="btn btn-primary">
+        <a href="/artist/" style="color:white">Regresar</a>
+    </button>
+{% endblock content %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block title %}{% endblock title %}
+{% block content %}
+<h1><strong>Artistas</strong></h1>
+<div class="card-group">
+    {% for artist in artists %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ artist }}</h5>
+                <p class="card-text">País de origen: {{ artist.country }}</p>
+                <a href="artist/{{ artist.id }}" class="btn btn-success">
+                    <i class="fa-solid fa-eye"></i>
+                </a>
+                    <a href="edit_artist/{{ artist.id }}" class="btn btn-primary">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>
+                    <a href="delete_artist/{{ artist.id }}" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
